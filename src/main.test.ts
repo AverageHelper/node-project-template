@@ -15,7 +15,7 @@ mockAlias.mockReturnValue(mockYargs);
 jest.mock("yargs", () => mockYargs);
 
 describe("Main", () => {
-	test("regiters the package version from package.json", async () => {
+	test("registers the package version from package.json", async () => {
 		await import("./main");
 		expect(mockYargsVersion).toHaveBeenCalledWith(packageVersion);
 	});

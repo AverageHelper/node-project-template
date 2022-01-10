@@ -7,7 +7,8 @@
 		"lib/"
 	],
 	"scripts": {
-		"build": "npm run export-version && tsc -p tsconfig.prod.json",
+		"prebuild": "npm run export-version && npm run lint",
+		"build": "tsc -p tsconfig.prod.json",
 		"build:clean": "rm -rf lib && npm run build",
 		"start": "nodemon --inspect .",
 		"test": "jest --selectProjects src --verbose --coverage",

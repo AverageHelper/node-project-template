@@ -26,7 +26,7 @@
 		"backup"
 	],
 	"author": "Average Helper",
-	"license": "ISC",
+	"license": "GPL-3.0",
 	"bugs": {
 		"url": "https://github.com/AverageHelper/NODE_PROJECT_TEMPLATE/issues"
 	},

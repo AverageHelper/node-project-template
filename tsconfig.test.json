@@ -2,7 +2,8 @@
 	"extends": "./tsconfig.base.json",
 	"compilerOptions": {
 		"noEmit": true,
-		"types": ["node", "jest", "jest-extended"]
+		"typeRoots": ["./node_modules/@types", "./node_modules", "./src"],
+		"types": ["node", "vitest/globals"]
 	},
-	"include": ["src/**/*.ts", "tests/**/*.ts", "src/**/*.json"]
+	"include": ["./*.ts", "src/**/*.ts", "tests/**/*.ts", "src/**/*.json"]
 }

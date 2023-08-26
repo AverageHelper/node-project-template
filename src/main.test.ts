@@ -1,22 +1,32 @@
-import { version as packageVersion } from "./version";
+import { version as packageVersion } from "./version.js";
 
-const mockYargsVersion = jest.fn();
-const mockHelp = jest.fn();
-const mockAlias = jest.fn();
-const mockYargs = {
-	version: mockYargsVersion,
-	help: mockHelp,
-	alias: mockAlias,
-	argv: {}
-};
-mockYargsVersion.mockReturnValue(mockYargs);
-mockHelp.mockReturnValue(mockYargs);
-mockAlias.mockReturnValue(mockYargs);
-jest.mock("yargs", () => mockYargs);
+const mockParseArgs = vi.fn();
+vi.mock("node:util", () => ({ parseArgs: mockParseArgs }));
+
+const mockConsoleInfo = vi.spyOn(console, "info");
 
 describe("Main", () => {
-	test("registers the package version from package.json", async () => {
-		await import("./main");
-		expect(mockYargsVersion).toHaveBeenCalledWith(packageVersion);
+	test("does something", async () => {
+		mockParseArgs.mockReturnValue({
+			values: {
+				version: false
+			}
+		});
+		await import("./main.js");
+
+		expect(mockParseArgs).toHaveBeenCalledOnce();
+		expect(mockConsoleInfo).toHaveBeenCalledExactlyOnceWith("TODO: Do something here!");
+	});
+
+	test("prints the package version", async () => {
+		mockParseArgs.mockReturnValue({
+			values: {
+				version: true
+			}
+		});
+		await import("./main.js");
+
+		expect(mockParseArgs).toHaveBeenCalledOnce();
+		expect(mockConsoleInfo).toHaveBeenCalledExactlyOnceWith(`v${packageVersion}`);
 	});
 });

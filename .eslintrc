@@ -8,12 +8,19 @@
 		"strictest/typescript-eslint",
 		"strictest/unicorn",
 		"eslint:recommended",
-		"plugin:jest/recommended",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:@typescript-eslint/recommended-requiring-type-checking",
 		"plugin:prettier/recommended"
 	],
-	"plugins": ["prettier", "unicorn", "promise", "@typescript-eslint"],
+	"plugins": [
+		"file-progress",
+		"deprecation",
+		"prettier",
+		"unicorn",
+		"promise",
+		"import",
+		"@typescript-eslint"
+	],
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"project": "./tsconfig.prod.json",
@@ -23,14 +30,17 @@
 		"node": true
 	},
 	"rules": {
+		"file-progress/activate": 1,
+		"deprecation/deprecation": "warn",
 		"prettier/prettier": "warn",
 		"no-constant-condition": "warn",
 		"no-console": "warn",
 		"no-dupe-else-if": "warn",
 		"consistent-return": "off", // TS handles this
-		"no-duplicate-imports": "off", // typescript-eslint handles this
-		"@typescript-eslint/no-duplicate-imports": "error",
-		"@typescript-eslint/no-implicit-any-catch": "error",
+		"no-duplicate-imports": "off", // eslint-plugin-imports handles this
+		"import/no-duplicates": "warn",
+		"import/no-default-export": "error",
+		"import/extensions": ["error", "ignorePackages"],
 		"@typescript-eslint/no-empty-interface": "off",
 		"@typescript-eslint/require-await": "warn",
 		"@typescript-eslint/no-inferrable-types": "off",
@@ -52,16 +62,13 @@
 
 	"overrides": [
 		{
-			"files": ["src/**/*.test.ts", "tests/**/*.ts", "**/__mocks__/**/*.ts"],
-			"extends": ["plugin:prettier/recommended"],
-			"plugins": ["prettier", "@typescript-eslint"],
+			"files": ["./*.ts", "src/**/*.test.ts", "tests/**/*.ts", "**/__mocks__/**/*.ts"],
+			"extends": ["plugin:prettier/recommended", "plugin:vitest/recommended"],
+			"plugins": ["prettier", "@typescript-eslint", "vitest"],
 			"parser": "@typescript-eslint/parser",
 			"parserOptions": {
 				"project": "./tsconfig.test.json",
 				"tsconfigRootDir": "."
-			},
-			"env": {
-				"jest": true
 			},
 			"rules": {
 				"prettier/prettier": "warn",

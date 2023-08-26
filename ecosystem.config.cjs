@@ -3,7 +3,7 @@
 module.exports = {
 	apps: [
 		{
-			name: "NODE_PROJECT_TEMPLATE",
+			name: "node-project-template",
 			script: "./lib/main.js",
 			cwd: __dirname,
 			source_map_support: true,

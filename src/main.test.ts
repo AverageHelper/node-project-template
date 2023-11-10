@@ -1,3 +1,4 @@
+import { describe, expect, test, vi } from "vitest";
 import { version as packageVersion } from "./version.js";
 
 const mockParseArgs = vi.fn();

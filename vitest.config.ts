@@ -3,7 +3,6 @@ import { defineConfig } from "vitest/config";
 // eslint-disable-next-line import/no-default-export
 export default defineConfig({
 	test: {
-		globals: true,
 		typecheck: {
 			checker: "tsc",
 			tsconfig: "./tsconfig.test.json"

@@ -1,5 +1,5 @@
 {
-	"name": "NODE_PROJECT_TEMPLATE",
+	"name": "node-project-template",
 	"version": "1.0.0",
 	"description": "Boilerplate for a NodeJS project in strict TypeScript.",
 	"scripts": {
@@ -14,7 +14,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://codeberg.org/AverageHelper/NODE_PROJECT_TEMPLATE.git"
+		"url": "git+https://git.average.name/AverageHelper/node-project-template.git"
 	},
 	"keywords": [
 		"node"
@@ -22,9 +22,9 @@
 	"author": "Average Helper",
 	"license": "GPL-3.0",
 	"bugs": {
-		"url": "https://codeberg.org/AverageHelper/NODE_PROJECT_TEMPLATE/issues"
+		"url": "https://git.average.name/AverageHelper/node-project-template/issues"
 	},
-	"homepage": "https://codeberg.org/AverageHelper/NODE_PROJECT_TEMPLATE#readme",
+	"homepage": "https://git.average.name/AverageHelper/node-project-template#readme",
 	"type": "module",
 	"main": "./lib/main.js",
 	"files": [
